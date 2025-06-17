@@ -119,7 +119,7 @@ const AboutMe = () => {
               className="w-48 h-48 rounded-full overflow-hidden border-4 border-white mb-6 shadow-lg"
             >
               <img 
-                src="public/yash.jpeg" 
+                src="/yash.jpeg" 
                 alt="Yash Pratap Maurya" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />

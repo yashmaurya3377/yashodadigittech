@@ -145,7 +145,7 @@ const HomePage = () => {
                 <div className="absolute inset-0 bg-blue-400 rounded-3xl transform rotate-3 sm:rotate-6"></div>
                 <div className="relative bg-white rounded-3xl shadow-xl overflow-hidden">
                   <img 
-                    src="public/company.jpg" 
+                    src="/company.jpg" 
                     alt="Digital Solutions" 
                     className="w-full h-48 sm:h-60  object-center"
                   />

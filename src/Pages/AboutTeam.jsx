@@ -42,7 +42,7 @@ const AboutCompany = () => {
       role: "Founder & Full Stack Developer",
       bio: "B.Com graduate turned developer with expertise in React, Node.js, and MongoDB. Passionate about building business-focused applications.",
       skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-      image: "public/yash.jpeg",
+      image: "/yash.jpeg",
       social: { github: "#", linkedin: "#", twitter: "#" }
     },
     {
@@ -51,7 +51,7 @@ const AboutCompany = () => {
       role: "Frontend Developer",
       bio: "Specializes in creating beautiful, responsive user interfaces with React and modern CSS frameworks.",
       skills: ["React", "JavaScript", "CSS", "Figma"],
-      image: "public/team1.jpg",
+      image: "/team1.jpg",
       social: { github: "#", linkedin: "#", twitter: "#" }
     },
     {
@@ -60,7 +60,7 @@ const AboutCompany = () => {
       role: "UI/UX Designer",
       bio: "Creates intuitive user experiences and stunning visual designs that enhance usability.",
       skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
-      image: "public/team2.jpg",
+      image: "/team2.jpg",
       social: { github: "#", linkedin: "#", twitter: "#" }
     },
     {
@@ -69,7 +69,7 @@ const AboutCompany = () => {
       role: "Backend Developer",
       bio: "Expert in building scalable server architectures, APIs, and database systems.",
       skills: ["Node.js", "Express", "MongoDB", "PostgreSQL"],
-      image: "public/team3.jpg",
+      image: "/team3.jpg",
       social: { github: "#", linkedin: "#", twitter: "#" }
     }
   ];
@@ -109,7 +109,7 @@ const AboutCompany = () => {
         <div className="md:flex">
           <motion.div variants={slideIn} className="md:w-1/3 p-8 flex flex-col items-center bg-gray-100">
             <motion.div whileHover={{ scale: 1.05 }} className="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 mb-4">
-              <img src="public/image.png" alt="Company Logo" className="w-full h-full object-cover" />
+              <img src="/image.png" alt="Company Logo" className="w-full h-full object-cover" />
             </motion.div>
             <h2 className="text-2xl font-bold text-blue-700">Yashoda Tech Solutions</h2>
             <p className="text-gray-600 mb-6">Full Stack Development Agency</p>
@@ -206,7 +206,7 @@ const AboutCompany = () => {
           <motion.div variants={slideIn} className="md:w-1/4 mb-6 md:mb-0 flex justify-center">
             <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500">
               <Link to='/aboutme'>
-                <img src="public/yash.jpeg" alt="Yash Pratap Maurya" className="w-full h-full object-cover" />
+                <img src="/yash.jpeg" alt="Yash Pratap Maurya" className="w-full h-full object-cover" />
               </Link>
             </div>
           </motion.div>
