@@ -9,8 +9,8 @@ import { motion } from 'framer-motion';
 // Simplified animation variants
 const fadeUp = {
   hidden: { y: 20, opacity: 0 },
-  visible: { 
-    y: 0, 
+  visible: {
+    y: 0,
     opacity: 1,
     transition: { type: "spring", stiffness: 100 }
   }
@@ -18,8 +18,8 @@ const fadeUp = {
 
 const slideIn = {
   hidden: { x: -100, opacity: 0 },
-  visible: { 
-    x: 0, 
+  visible: {
+    x: 0,
     opacity: 1,
     transition: { type: "spring", stiffness: 100 }
   }
@@ -27,8 +27,8 @@ const slideIn = {
 
 const scaleUp = {
   hidden: { scale: 0.95, opacity: 0 },
-  visible: { 
-    scale: 1, 
+  visible: {
+    scale: 1,
     opacity: 1,
     transition: { type: "spring", stiffness: 100 }
   }
@@ -43,7 +43,7 @@ const AboutCompany = () => {
       bio: "B.Com graduate turned developer with expertise in React, Node.js, and MongoDB. Passionate about building business-focused applications.",
       skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
       image: "/yash.jpeg",
-      social: { github: "#", linkedin: "#", twitter: "#" }
+      social: { github: "https://github.com/yashmaurya3377", linkedin: "#", twitter: "#" }
     },
     {
       id: 2,
@@ -87,6 +87,13 @@ const AboutCompany = () => {
     { icon: <FaMobileAlt />, title: "Mobile", items: ["React Native", "PWA Development", "Cross-platform", "App Store Deployment"] }
   ];
 
+  const contactInfo = [
+    { icon: <CgMail className="text-xl text-blue-500" />, text: "contact@codecraftsolutions.com", link: "mailto:contact@codecraftsolutions.com" },
+    { icon: <BsFillTelephoneFill className="text-lg text-blue-500" />, text: "+91 8787256663", link: "tel:+918787256663" },
+    { icon: <IoLocationOutline className="text-xl text-blue-500" />, text: "Lucknow, India" },
+    { icon: <BsGithub className="text-lg text-blue-500" />, text: "github.com/yashmaurya3377", link: "https://github.com/yashmaurya3377" }
+  ];
+
   return (
     <motion.div
       initial="hidden"
@@ -113,38 +120,35 @@ const AboutCompany = () => {
             </motion.div>
             <h2 className="text-2xl font-bold text-blue-700">Yashoda Tech Solutions</h2>
             <p className="text-gray-600 mb-6">Full Stack Development Agency</p>
-            
+
             <div className="w-full">
               <h3 className="font-semibold text-lg text-blue-600 mb-3">Contact Info</h3>
               <ul className="space-y-3">
-                {[
-                  { icon: <CgMail className="text-xl text-blue-500" />, text: "contact@codecraftsolutions.com" },
-                  { icon: <BsFillTelephoneFill className="text-lg text-blue-500" />, text: "+91 8787256663" },
-                  { icon: <IoLocationOutline className="text-xl text-blue-500" />, text: "Lucknow, India" },
-                  { icon: <BsGithub className="text-lg text-blue-500" />, text: "github.com/codecraft-solutions", link: true }
-                ].map((item, i) => (
+                {contactInfo.map((item, i) => (
                   <motion.li key={i} variants={fadeUp} className="flex items-center">
                     <span className="mr-3">{item.icon}</span>
                     {item.link ? (
-                      <a href="#" target="_blank" rel="noopener noreferrer">{item.text}</a>
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                        {item.text}
+                      </a>
                     ) : <span>{item.text}</span>}
                   </motion.li>
                 ))}
               </ul>
             </div>
           </motion.div>
-          
+
           <motion.div variants={slideIn} className="md:w-2/3 p-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
             <motion.p variants={fadeUp} className="text-gray-600 mb-4">
-              Founded in 2022 by Yash Pratap Maurya, Yashoda Tech Solutions began as a passion project to bridge the gap 
+              Founded in 2022 by Yash Pratap Maurya, Yashoda Tech Solutions began as a passion project to bridge the gap
               between business needs and technical solutions.
             </motion.p>
             <motion.p variants={fadeUp} className="text-gray-600 mb-6">
-              We combine Yash's unique background in commerce with cutting-edge development expertise to deliver 
+              We combine Yash's unique background in commerce with cutting-edge development expertise to deliver
               applications that are both technically excellent and business-savvy.
             </motion.p>
-            
+
             <div className="grid grid-cols-3 gap-4 mb-8">
               {[
                 { value: "25+", label: "Projects Completed" },
@@ -185,8 +189,8 @@ const AboutCompany = () => {
         </motion.h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={fadeUp}
               whileHover={{ y: -5 }}
               className="text-center p-6 bg-white rounded-xl shadow-md"
@@ -232,7 +236,7 @@ const AboutCompany = () => {
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Our Expert Team</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
-            <motion.div 
+            <motion.div
               key={member.id}
               variants={fadeUp}
               whileHover={{ y: -5 }}

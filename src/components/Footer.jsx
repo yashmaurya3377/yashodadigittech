@@ -23,7 +23,8 @@ const Footer = () => {
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 100
+        stiffness: 100,
+        damping: 10
       }
     }
   };
@@ -31,8 +32,13 @@ const Footer = () => {
   const lineVariants = {
     hidden: { width: 0 },
     visible: {
-      width: "100%",
-      transition: { duration: 0.8, ease: "easeInOut" }
+      width: "90%",
+      transition: { 
+        duration: 3, 
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
     }
   };
 
@@ -41,11 +47,17 @@ const Footer = () => {
     transition: { type: "spring", stiffness: 300 }
   };
 
+  // Data arrays for cleaner JSX
+  const quickLinks = ["Home", "About Us", "Services", "Projects", "Contact"];
+  const services = ["Web Development", "Mobile Apps", "UI/UX Design", "API Development", "Database Solutions"];
+  const socialIcons = [FaGithub, FaLinkedin, FaTwitter];
+  const policies = ["Privacy Policy", "Terms & Conditions"];
+
   return (
     <motion.footer 
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
       className="bg-gray-900 text-white pt-12 pb-8"
     >
       <div className="container mx-auto px-4">
@@ -56,16 +68,17 @@ const Footer = () => {
           {/* Column 1 - About */}
           <motion.div variants={itemVariants}>
             <h3 className="text-xl font-bold mb-4">Yashoda Tech Solutions</h3>
-            <p className="mb-4">
+            <p className="mb-4 text-gray-300">
               Building digital experiences that drive business growth and innovation.
               We combine technical excellence with business acumen to deliver impactful solutions.
             </p>
             <motion.div 
+              className="flex space-x-4"
+              variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="flex space-x-4"
             >
-              {[FaGithub, FaLinkedin, FaTwitter].map((Icon, index) => (
+              {socialIcons.map((Icon, index) => (
                 <motion.a
                   key={index}
                   href="#"
@@ -85,25 +98,18 @@ const Footer = () => {
 
           {/* Column 2 - Quick Links */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
-              className="text-lg font-semibold mb-4 relative pb-2"
-            >
+            <motion.h4 className="text-lg font-semibold mb-4 relative pb-2">
               Quick Links
               <motion.div 
                 className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
                 variants={lineVariants}
+                initial="hidden"
+                animate="visible"
               />
             </motion.h4>
             <ul className="space-y-2">
-              {["Home", "About Us", "Services", "Projects", "Contact"].map((link, index) => (
-                <motion.li 
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{
-                    x: 5,
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                >
+              {quickLinks.map((link, index) => (
+                <motion.li key={index} variants={itemVariants}>
                   <a href="#" className="text-gray-400 hover:text-white flex items-center">
                     <motion.span 
                       className="w-2 h-2 bg-blue-500 rounded-full mr-2"
@@ -111,7 +117,14 @@ const Footer = () => {
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.1 * index }}
                     />
-                    {link}
+                    <motion.span
+                      whileHover={{
+                        x: 5,
+                        transition: { type: "spring", stiffness: 300 }
+                      }}
+                    >
+                      {link}
+                    </motion.span>
                   </a>
                 </motion.li>
               ))}
@@ -120,25 +133,18 @@ const Footer = () => {
 
           {/* Column 3 - Services */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
-              className="text-lg font-semibold mb-4 relative pb-2"
-            >
+            <motion.h4 className="text-lg font-semibold mb-4 relative pb-2">
               Our Services
               <motion.div 
                 className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
                 variants={lineVariants}
+                initial="hidden"
+                animate="visible"
               />
             </motion.h4>
             <ul className="space-y-2">
-              {["Web Development", "Mobile Apps", "UI/UX Design", "API Development", "Database Solutions"].map((service, index) => (
-                <motion.li 
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{
-                    x: 5,
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                >
+              {services.map((service, index) => (
+                <motion.li key={index} variants={itemVariants}>
                   <a href="#" className="text-gray-400 hover:text-white flex items-center">
                     <motion.span 
                       className="w-2 h-2 bg-blue-500 rounded-full mr-2"
@@ -146,7 +152,14 @@ const Footer = () => {
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.1 * index }}
                     />
-                    {service}
+                    <motion.span
+                      whileHover={{
+                        x: 5,
+                        transition: { type: "spring", stiffness: 300 }
+                      }}
+                    >
+                      {service}
+                    </motion.span>
                   </a>
                 </motion.li>
               ))}
@@ -155,13 +168,13 @@ const Footer = () => {
 
           {/* Column 4 - Contact */}
           <motion.div variants={itemVariants}>
-            <motion.h4 
-              className="text-lg font-semibold mb-4 relative pb-2"
-            >
+            <motion.h4 className="text-lg font-semibold mb-4 relative pb-2">
               Contact Us
               <motion.div 
                 className="absolute bottom-0 left-0 h-0.5 bg-blue-500"
                 variants={lineVariants}
+                initial="hidden"
+                animate="visible"
               />
             </motion.h4>
             <ul className="space-y-3">
@@ -170,24 +183,24 @@ const Footer = () => {
                 variants={itemVariants}
                 whileHover={hoverEffect}
               >
-                <MdLocationOn className="text-xl mr-3 mt-1" />
-                <span className="text-gray-400">Lucknow, Uttar Pradesh, India</span>
+                <MdLocationOn className="text-xl mr-3 mt-1 flex-shrink-0" />
+                <span className="text-gray-300">Lucknow, Uttar Pradesh, India</span>
               </motion.li>
               <motion.li 
                 className="flex items-center"
                 variants={itemVariants}
                 whileHover={hoverEffect}
               >
-                <MdEmail className="text-xl mr-3" />
-                <a href="mailto:contact@yashodatechsolutions.com" className="text-gray-400 hover:text-white">contact@yashodatechsolutions.com</a>
+                <MdEmail className="text-xl mr-3 flex-shrink-0" />
+                <a href="mailto:contact@yashodatechsolutions.com" className="text-gray-300 hover:text-white">contact@yashodatechsolutions.com</a>
               </motion.li>
               <motion.li 
                 className="flex items-center"
                 variants={itemVariants}
                 whileHover={hoverEffect}
               >
-                <MdPhone className="text-xl mr-3" />
-                <a href="tel:+918787256663" className="text-gray-400 hover:text-white">+91 8787256663</a>
+                <MdPhone className="text-xl mr-3 flex-shrink-0" />
+                <a href="tel:+918787256663" className="text-gray-300 hover:text-white">+91 8787256663</a>
               </motion.li>
             </ul>
           </motion.div>
@@ -207,7 +220,7 @@ const Footer = () => {
             initial="hidden"
             animate="visible"
           >
-            {["Privacy Policy", "Terms & Conditions"].map((item, index) => (
+            {policies.map((item, index) => (
               <motion.a 
                 key={index}
                 href="#"
