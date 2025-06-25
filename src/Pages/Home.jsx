@@ -52,7 +52,7 @@ const slideInLeft = {
   }
 };
 
-const HomePage = () => {
+const Home = () => {
   const featuredServices = [
     {
       title: "Web Development",
@@ -372,4 +372,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

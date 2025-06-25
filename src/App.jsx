@@ -6,9 +6,9 @@ import Projects from './Pages/Projects'
 import Services from './Pages/Services'
 import AboutMe from './Pages/AboutMe'
 import AboutTeam from './Pages/AboutTeam'
-import HomePage from './Pages/Homepage'
 import Contact from './Pages/Contact'
 import Footer from './components/Footer'
+import Home from './Pages/Home'
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
  <BrowserRouter>
  <Navbar/>  
  <Routes>
-  <Route path='/' element={<HomePage/>}/>
+  <Route path='/' element={<Home/>}/>
   <Route path='/projects' element={<Projects/>}/>
   <Route path='/aboutme' element={<AboutMe/>}/>
   <Route path='/about' element={<AboutTeam/>}/>
